@@ -27,3 +27,19 @@ public class Main {
         System.out.println("All tests have ended.");
     }
 }
+
+public void Best_Director {
+    if (movie_counter == 0){
+            println("No movies are available");
+            return;
+        }
+    int max_director_index = 0;
+    for (i = 0; i < array_directors.length(); i++){
+            if(array_directors[i].DirectorRating() >
+                array_directors[max_director_index].DirectorRating()){
+                max_director_index = i;
+            }
+        }
+    println("Best director: " + array_directors[max_director_index].DirectorName() +
+            "with an average rating of: " + array_directors[max_director_index].DirectorRating());
+}
