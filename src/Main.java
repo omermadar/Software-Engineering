@@ -36,9 +36,24 @@ public class Movie {
     private Directors director;
 
     public Movie(double rating, String name, Directors director) {
-
-
+        this.name = name;
+        this.rating = rating;
+        this.director = director;
+        director.AddMovieRating(rating);
     }
+
+    public ReRateMovie(double newrating){
+        this.director.RemoveMovieRating(this.rating);
+        this.rating = newrating;
+        this.director.AddMovieRating(this.rating);
+    }
+
+    public ChangeMovieDirector(Directors newdriector){
+        this.director.RemoteMovieRating(this.rating);
+        this.director = newdriector;
+        this.director.AddMovieRating(this.rating);
+    }
+
 }
 public class Directors {
     private String director;
@@ -51,6 +66,17 @@ public class Directors {
         num_movies++;
     }
 
+    public AddMovieRating(double newrating){
+        this.rating = this.rating * num_movies;
+        this.num_movies++;
+        this.rating = (this.rating + newrating) / this.num_movies;
+    }
+
+    public RemoveMovieRating(double delrating){
+        this.rating = this.rating * num_movies;
+        this.num_movies--;
+        this.rating = (this.rating - delrating) / this.num_movies;
+    }
 }
 
 public class App {
