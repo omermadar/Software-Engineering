@@ -28,18 +28,60 @@ public class Main {
     }
 }
 
-public void Best_Director {
-    if (movie_counter == 0){
-            println("No movies are available");
-            return;
+
+
+public class Movie {
+    private String name;
+    private double rating;
+    private Directors director;
+
+    public Movie(double rating, String name, Directors director) {
+
+
+    }
+}
+public class Directors {
+    private String director;
+    private Double rating;
+    private int num_movies;
+
+    public Directors(String director, Double rating) {
+        this.director = director;
+        this.rating = rating;
+        num_movies++;
+    }
+
+}
+
+public class App {
+    private static Movie[] array_movies = new Movie[100];
+    private static Directors[] array_directors = new Directors[100];
+    private static int movie_counter;
+    private static int director_counter;
+
+    public void Add_Movie(String director, String movie_name, double movie_rating) {
+        if (director_counter == array_directors.length) {
+            System.out.println("Movies limit reached.");
         }
-    int max_director_index = 0;
-    for (i = 0; i < array_directors.length(); i++){
-            if(array_directors[i].DirectorRating() >
-                array_directors[max_director_index].DirectorRating()){
-                max_director_index = i;
+        if (movie_counter == array_directors.length) {
+            System.out.println("Movies limit reached.");
+        }
+        if ((movie_rating > 10) || (movie_rating < 0)) {
+        }
+    }
+        public void Best_Director {
+            if (movie_counter == 0){
+                System.out.println("No movies are available");
+                return;
             }
+            int max_director_index = 0;
+            for (i = 0; i < director_counter; i++){
+                if(array_directors[i].DirectorRating() >
+                        array_directors[max_director_index].DirectorRating()){
+                    max_director_index = i;
+                }
+            }
+            System.out.println("Best director: " + array_directors[max_director_index].DirectorName() +
+                    "with an average rating of: " + array_directors[max_director_index].DirectorRating());
         }
-    println("Best director: " + array_directors[max_director_index].DirectorName() +
-            "with an average rating of: " + array_directors[max_director_index].DirectorRating());
 }
